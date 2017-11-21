@@ -12,9 +12,14 @@
 
 * Email : jtcastil@calpoly.edu
 _._._._._._._._._._._._._._._._._._._._._.*/
+USE students
 -- Q1
-SELECT 
+SELECT First, Last, MAX(myTbl.count)
 FROM 
-WHERE 
+	(SELECT tc.First, tc.Last, COUNT(tc.Last) AS count
+	FROM list ls, teachers tc
+	WHERE ls.classroom = tc.classroom
+	GROUP BY tc.Last) AS myTbl;
+
 
 
